@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tower 28</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+        select {
+            padding: 10px;
+            font-size: 1em;
+            margin-left: 20px; 
+        }
+        .image-placeholder {
+            border: 2px dashed #ccc; 
+            border-radius: 5px; 
+            width: 500px; 
+            height: 500px; 
+            overflow: hidden; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px; 
+        }
+        .image-placeholder img {
+            max-width: 100%; 
+            max-height: 100%; 
+        }
+        li {
+            border-radius: 5px; 
+            padding: 10px; 
+            margin: 10px 0; 
+            transition: background-color 0.3s, transform 0.3s; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tower 28</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="about.html">About</a></li> 
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Explore Our Lip Gloss Collection</h2>
+            <p>Select your favorite shade and see it below!</p>
+        </section>
+        <section class="container">
+            <div class="image-placeholder">
+                <img id="imagePlaceholder" src="" alt="Lip Gloss Image"> <!-- Added id here -->
+            </div>
+            <select id="lipGlossSelect" onchange="changeImage()">
+                <option value="espresso">Espresso</option>
+                <option value="double-shot">Double Shot</option>
+                <option value="decaf">Decaf</option>
+                <option value="nude">Nude</option>
+            </select>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Tower 28 Lip Gloss </p>
+    </footer>
+
+    <script>
+        function changeImage() {
+            const select = document.getElementById('lipGlossSelect');
+            const selectedValue = select.value;
+            const imagePlaceholder = document.getElementById('imagePlaceholder');
+
+            switch (selectedValue) {
+                case 'espresso':
+                    imagePlaceholder.src = 'images/espresso.jpg'; 
+                    break;
+                case 'double-shot':
+                    imagePlaceholder.src = 'images/doubleshot.jpg'; 
+                    break;
+                case 'decaf':
+                    imagePlaceholder.src = 'images/decaf.jpg'; 
+                    break;
+                case 'nude':
+                    imagePlaceholder.src = 'images/nude.jpg'; 
+                    break;
+                default:
+                    imagePlaceholder.src = 'images/espresso.jpg'; 
+            }
+        }
+
+       
+        window.onload = function() {
+            changeImage();
+        };
+    </script>
+</body>
+</html>

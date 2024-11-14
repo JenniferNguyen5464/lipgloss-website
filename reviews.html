@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews - Tower 28</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e8f0f2; 
+            color: #333;
+        }
+        header {
+            background-color: #ff6f61; 
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+        .review-form {
+            margin: 20px 0;
+            padding: 20px;
+            border: 2px dashed #ccc;
+            border-radius: 5px;
+            background-color: #fff; 
+        }
+        .review-list {
+            margin-top: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left; 
+        }
+        .review-item {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #f9f9f9; 
+        }
+        li {
+            
+            border-radius: 5px; 
+            padding: 10px; 
+            margin: 10px 0; 
+            transition: background-color 0.3s, transform 0.3s; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tower 28</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="about.html">About</a></li> 
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Customer Reviews</h2>
+            <p>Share your thoughts about our lip gloss collection!</p>
+        </section>
+        <section class="review-form">
+            <h3>Submit Your Review</h3>
+            <form id="reviewForm" onsubmit="submitReview(event)">
+                <textarea id="reviewText" rows="4" cols="50" placeholder="Write your review here..." required></textarea><br>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <section class="review-list" id="reviewList">
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Tower 28 Lip Gloss </p>
+    </footer>
+
+    <script>
+        function submitReview(event) {
+            event.preventDefault(); 
+
+            const reviewText = document.getElementById('reviewText').value;
+            const reviewList = document.getElementById('reviewList');
+
+            const reviewItem = document.createElement('div');
+            reviewItem.className = 'review-item';
+            reviewItem.textContent = reviewText;
+
+            reviewList.appendChild(reviewItem);
+
+            document.getElementById('reviewText').value = '';
+        }
+    </script>
+</body>
+</html>
